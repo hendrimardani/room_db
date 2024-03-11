@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             addRecord(employeeDao)
         }
 
+        // get all items
         getAll(employeeDao)
     }
 
