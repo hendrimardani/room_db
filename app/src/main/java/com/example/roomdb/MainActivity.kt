@@ -32,12 +32,7 @@ class MainActivity : AppCompatActivity() {
             addRecord(employeeDao)
         }
 
-        lifecycleScope.launch {
-            employeeDao.fetchAllEmployees().collect {
-                val list = ArrayList(it)
-                setupListOfDataIntoRecyclerView(list, employeeDao)
-            }
-        }
+        getAll(employeeDao)
     }
 
     private fun setToolbar() {
@@ -51,6 +46,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun getAll(employeeDao: EmployeeDao) {
+        lifecycleScope.launch {
+            employeeDao.fetchAllEmployees().collect {
+                val list = ArrayList(it)
+                setupListOfDataIntoRecyclerView(list, employeeDao)
+            }
+        }
+    }
     private fun addRecord(employeeDao: EmployeeDao) {
         val name = binding.etName.text.toString()
         val email = binding.etEmail.text.toString()
