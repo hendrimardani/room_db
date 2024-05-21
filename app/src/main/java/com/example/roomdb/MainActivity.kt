@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    
     private fun addRecord(employeeDao: EmployeeDao) {
         val name = binding.etName.text.toString()
         val email = binding.etEmail.text.toString()
